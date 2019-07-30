@@ -36,7 +36,7 @@ namespace PlayFabBuddyLib.DisplayName
 			var result = await _playfab.GetAccountInfoAsync(new GetAccountInfoRequest()
 			{
 				PlayFabId = _auth.PlayFabId
-			});
+			}).ConfigureAwait(false);
 
 			if (null == result.Error)
 			{
@@ -50,7 +50,7 @@ namespace PlayFabBuddyLib.DisplayName
 			var result = await _playfab.UpdateUserTitleDisplayNameAsync(new UpdateUserTitleDisplayNameRequest()
 			{
 				DisplayName = displayName
-			});
+			}).ConfigureAwait(false);
 
 			OnDisplayNameChange?.Invoke(displayName);
 
